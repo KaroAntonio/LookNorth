@@ -46,6 +46,13 @@ body {
         z-index: 0;
     }
 
+#square_tl{ background-image: url("../img/snow_woods.jpg");}
+#square_tr{ background-image: url("../img/mt_forest.png");}
+#square_bl{ background-image: url("../img/mt_forest.png");}
+#square_br{ background-image: url("../img/snow_woods.jpg");}
+#square_m{ background-image: url("../img/middle.jpg");}
+
+
 
 
 
