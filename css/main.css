@@ -19,9 +19,9 @@ body {
 
     #gradient{
         display: block;
-        background-image: url("../img/grad.png");
-        width:4000px;
-        height: 4000px;
+        /*background-image: url("../img/grad.png");
+        width:4800px;
+        height: 4800px;*/
         background-size: contain;
         position: absolute;
         z-index: 1;
@@ -32,7 +32,7 @@ body {
         text-align: left;
     }
 
-    #squareDiv{
+    .square{
         margin-left: auto;
         margin-right: auto;
         margin-top: 0;
@@ -40,12 +40,13 @@ body {
         top: 5vh;
         width: 90vh;
         height: 90vh;
-        background-image: url("../img/mt_forest.png");
         background-size: 100%,auto;
         background-position: top;
-        position: relative;
+        position: absolute;
         z-index: 0;
     }
+
+
 
 
 

@@ -64,6 +64,7 @@ function calculateSquare(){
 
 function initScene(){
     calculateSquare();
+    alignSquares();
 	container = document.createElement('div');
     document.body.appendChild(container);
 
@@ -89,6 +90,11 @@ function initGlobalUniforms(){
 	}
 }
 
+function alignSquares(){
+    //centre squares vertically and h-ally
+    $('.square').css({left:window.innerWidth/2-$('.square').width()/2});
+}
+
 var time = 2.0;
 
 function map(value,max,minrange,maxrange) {
@@ -96,6 +102,7 @@ function map(value,max,minrange,maxrange) {
 }
 function onWindowResize( event ) {
     calculateSquare();
+    alignSquares();
 
 }
 function onDocumentMouseMove(event){
@@ -125,7 +132,6 @@ function onDocumentTouchStart( event ) {
 	    	middle: Math.sqrt((d2A["middle"].x*d2A["middle"].x) + (d2A["middle"].y*d2A["middle"].y))
 		}
 		handleAudio(distObj);
-        handleGrad();
     }
 }
 
@@ -154,7 +160,6 @@ function onDocumentTouchMove( event ) {
 		}
 		// console.log(distObj);
 		handleAudio(distObj);
-        handleGrad();
     }
 }
 
@@ -179,22 +184,37 @@ function updateAudio( event ) {
     	bottomRight: Math.sqrt((d2A["bottomRight"].x*d2A["bottomRight"].x) + (d2A["bottomRight"].y*d2A["bottomRight"].y)),
     	middle: Math.sqrt((d2A["middle"].x*d2A["middle"].x) + (d2A["middle"].y*d2A["middle"].y))
 	}
-	handleAudio(distObj);
-    handleGrad();
+	handleEnv(distObj);
 }
     
 function onDocumentTouchEnd( event ) {
     mouseX = 0; 
     mouseY = 0;
 }
+
+function handleEnv(distance) {
+    vols = handleAudio(distance)
+    handleGrad(vols)
+    handleImg(vols)
+}
  
-function handleGrad() {
+function handleGrad(vols) {
     x = 1 - (mouseX+2.5)/5
     y = 1 - (mouseY+1.5)/3
-    g_left = x*window.innerWidth - $('#gradient').width()/2.
+    w = window.innerWidth
+    h = window.innerHeight
+    g_left = x*w*0.5 + w*0.25 - $('#gradient').width()/2.
     g_top =  y*window.innerHeight - $('#gradient').height()/2.
-    console.log(g_top)
     $('#gradient').css({top: g_top, left: g_left, position:'absolute'})
+}
+
+function handleImg(vols) {
+    $('#square_tl').css({opacity:vols[0]})
+    $('#square_tr').css({opacity:vols[1]})
+    $('#square_m').css({opacity:vols[2]})
+    $('#square_bl').css({opacity:vols[3]})
+    $('#square_br').css({opacity:vols[4]})
+    $('.square').click(function() {window.location='http://jonathankawchuk.com/home'})
 }
 
 function handleAudio(distance){
@@ -215,6 +235,7 @@ function handleAudio(distance){
 	var volBottomLeft = map(distance.bottomLeft, max, 0.0, 1.0);
 	var volBottomRight = map(distance.bottomRight, max, 0.0, 1.0);
 	var volMiddle = map(distance.middle, max, 0.0,1.0)
+    
     /*
     $('#info').html('tl: '+volTopLeft+
                     '<br>'+'tr: '+volTopRight+
@@ -233,4 +254,6 @@ function handleAudio(distance){
 	bottomLeft.play();
 	bottomRight.play();
 	middle.play();
+    
+    return [volTopLeft,volTopRight, volMiddle, volBottomLeft, volBottomRight]
 }
