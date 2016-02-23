@@ -214,7 +214,7 @@ function handleImg(vols) {
     $('#square_m').css({opacity:vols[2]})
     $('#square_bl').css({opacity:vols[3]})
     $('#square_br').css({opacity:vols[4]})
-    $('.square').click(function() {window.location='http://jonathankawchuk.com/home'})
+    $('.square').click(function() {window.location='https://jonathankawchuk.com/home'})
 }
 
 function handleAudio(distance){
