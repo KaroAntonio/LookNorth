@@ -46,7 +46,7 @@ window.mobilecheck = function() {
 console.log(window.mobilecheck())
 
 //forward if we are on mobile
-if (!window.mobilecheck()) { window.location = 'https://jonathankawchuk.com/home'; }
+if (window.mobilecheck()) { window.location = 'http://jonathankawchuk.com/home'; }
 
 $(document).ready(function(){
 initScene();
