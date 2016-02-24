@@ -46,7 +46,7 @@ window.mobilecheck = function() {
 console.log(window.mobilecheck())
 
 //forward if we are on mobile
-if (window.mobilecheck()) { window.location = 'https://jonathankawchuk.com/home'; }
+if (!window.mobilecheck()) { window.location = 'https://jonathankawchuk.com/home'; }
 
 $(document).ready(function(){
 initScene();
@@ -223,7 +223,7 @@ function handleImg(vols) {
     $('#square_m').css({opacity:vols[2]})
     $('#square_bl').css({opacity:vols[3]})
     $('#square_br').css({opacity:vols[4]})
-    $('.square').click(function() {window.top.location.href='https://jonathankawchuk.com/home'})
+    $('.square').click(function() {window.top.location.href='http://jonathankawchuk.com/home'})
 }
 
 function handleAudio(distance){
