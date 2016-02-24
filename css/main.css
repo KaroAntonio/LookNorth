@@ -5,6 +5,7 @@ body {
     text-align: center;
     margin: 0;
     background: white;
+    cursor: pointer;
     }
     #icons {
     cursor: pointer; cursor: hand;
@@ -46,10 +47,10 @@ body {
         z-index: 0;
     }
 
-#square_tl{ background-image: url("../img/snow_woods.jpg");}
-#square_tr{ background-image: url("../img/mt_forest.png");}
-#square_bl{ background-image: url("../img/mt_forest.png");}
-#square_br{ background-image: url("../img/snow_woods.jpg");}
+#square_tl{ background-image: url("../img/tl.jpg");}
+#square_tr{ background-image: url("../img/tr.png");}
+#square_bl{ background-image: url("../img/bl.png");}
+#square_br{ background-image: url("../img/br.jpg");}
 #square_m{ background-image: url("../img/middle.jpg");}
 
 
