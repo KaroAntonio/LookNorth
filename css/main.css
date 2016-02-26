@@ -47,11 +47,11 @@ body {
         z-index: 0;
     }
 
-#square_tl{ background-image: url("../img/tl.jpg");}
-#square_tr{ background-image: url("../img/tr.jpg");}
-#square_bl{ background-image: url("../img/bl.jpg");}
-#square_br{ background-image: url("../img/br.jpg");}
-#square_m{ background-image: url("../img/middle.jpg");}
+#square_tl{ background-image: url("../img/tl.png");}
+#square_tr{ background-image: url("../img/tr.png");}
+#square_bl{ background-image: url("../img/bl.png");}
+#square_br{ background-image: url("../img/br.png");}
+#square_m{ background-image: url("../img/middle.png");}
 
 
 
